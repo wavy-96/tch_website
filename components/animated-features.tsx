@@ -66,12 +66,19 @@ export function AnimatedFeaturesSection() {
   );
 }
 
+interface FeatureProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  index: number;
+}
+
 const Feature = ({
   title,
   description,
   icon,
   index
-}) => {
+}: FeatureProps) => {
   return (
     <div
       className={cn(
