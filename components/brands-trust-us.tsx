@@ -58,7 +58,7 @@ export function BrandsTrustUs() {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
                         e.currentTarget.style.display = 'none';
-                        const fallback = e.currentTarget.nextElementSibling;
+                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
                         if (fallback) fallback.style.display = 'flex';
                       }}
                       onLoad={() => {
@@ -92,7 +92,7 @@ export function BrandsTrustUs() {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
                         e.currentTarget.style.display = 'none';
-                        const fallback = e.currentTarget.nextElementSibling;
+                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
                         if (fallback) fallback.style.display = 'flex';
                       }}
                       onLoad={() => {
@@ -129,7 +129,7 @@ export function BrandsTrustUs() {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
                         e.currentTarget.style.display = 'none';
-                        const fallback = e.currentTarget.nextElementSibling;
+                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
                         if (fallback) fallback.style.display = 'flex';
                       }}
                       onLoad={() => {
@@ -163,7 +163,7 @@ export function BrandsTrustUs() {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
                         e.currentTarget.style.display = 'none';
-                        const fallback = e.currentTarget.nextElementSibling;
+                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
                         if (fallback) fallback.style.display = 'flex';
                       }}
                       onLoad={() => {
