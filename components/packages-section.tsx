@@ -7,14 +7,16 @@ import { Check, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { ContactModal } from "@/components/contact-modal";
 
+type ServiceCategoryId = "logo-design" | "website-development" | "ecommerce" | "branding" | "video-animation" | "seo" | "social-media";
+
 const serviceCategories = [
-  { id: "logo-design", name: "Logo Design", selected: true },
-  { id: "website-development", name: "Website Development", selected: false },
-  { id: "ecommerce", name: "E-Commerce Website", selected: false },
-  { id: "branding", name: "Branding", selected: false },
-  { id: "video-animation", name: "Video Animation", selected: false },
-  { id: "seo", name: "Seo", selected: false },
-  { id: "social-media", name: "Social Media Marketing", selected: false }
+  { id: "logo-design" as ServiceCategoryId, name: "Logo Design", selected: true },
+  { id: "website-development" as ServiceCategoryId, name: "Website Development", selected: false },
+  { id: "ecommerce" as ServiceCategoryId, name: "E-Commerce Website", selected: false },
+  { id: "branding" as ServiceCategoryId, name: "Branding", selected: false },
+  { id: "video-animation" as ServiceCategoryId, name: "Video Animation", selected: false },
+  { id: "seo" as ServiceCategoryId, name: "Seo", selected: false },
+  { id: "social-media" as ServiceCategoryId, name: "Social Media Marketing", selected: false }
 ];
 
 const servicePackages = {
@@ -510,7 +512,7 @@ const servicePackages = {
 };
 
 export function PackagesSection() {
-  const [selectedService, setSelectedService] = useState("logo-design");
+  const [selectedService, setSelectedService] = useState<ServiceCategoryId>("logo-design");
   const currentPackages = servicePackages[selectedService] || servicePackages["logo-design"];
 
   return (
