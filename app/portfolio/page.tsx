@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { ArrowRight, ExternalLink, Eye } from 'lucide-react'
 import { RealWebsiteScreenshot } from '@/components/real-website-screenshot'
 import { LogoPortfolio } from '@/components/logo-portfolio'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 
@@ -177,7 +177,7 @@ const portfolioItems = [
 
 const categories = ['Website', 'Graphic Designing', 'Branding']
 
-export default function PortfolioPage() {
+function PortfolioContent() {
   const [activeCategory, setActiveCategory] = useState('Website')
   const searchParams = useSearchParams()
 
@@ -370,5 +370,13 @@ export default function PortfolioPage() {
 
       <Footer />
     </main>
+  )
+}
+
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PortfolioContent />
+    </Suspense>
   )
 }

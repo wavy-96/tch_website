@@ -207,13 +207,15 @@ export function PortfolioPreview() {
                     // Logo Display
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          width={200}
-                          height={200}
-                          className="object-contain max-h-40 max-w-40 group-hover:scale-110 transition-transform duration-300"
-                        />
+                        {item.image && (
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width={200}
+                            height={200}
+                            className="object-contain max-h-40 max-w-40 group-hover:scale-110 transition-transform duration-300"
+                          />
+                        )}
                       </div>
                       {/* Logo Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -241,13 +243,15 @@ export function PortfolioPreview() {
                     // Photography Display
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          width={400}
-                          height={400}
-                          className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
-                        />
+                        {item.image && (
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width={400}
+                            height={400}
+                            className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                          />
+                        )}
                       </div>
                       {/* Photography Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -265,7 +269,7 @@ export function PortfolioPreview() {
                           size="icon"
                           variant="secondary"
                           className="w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm"
-                          onClick={() => window.open(item.image, '_blank')}
+                          onClick={() => item.image && window.open(item.image, '_blank')}
                         >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
@@ -279,11 +283,13 @@ export function PortfolioPreview() {
                       
                       {/* Website Screenshot */}
                       <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-500">
-                        <RealWebsiteScreenshot
-                          url={item.websiteUrl}
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                        />
+                        {item.websiteUrl && (
+                          <RealWebsiteScreenshot
+                            url={item.websiteUrl}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
                       </div>
                       
                       {/* Overlay for better text readability */}
@@ -302,7 +308,7 @@ export function PortfolioPreview() {
                           size="icon" 
                           variant="secondary" 
                           className="w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm"
-                          onClick={() => window.open(item.websiteUrl, '_blank')}
+                          onClick={() => item.websiteUrl && window.open(item.websiteUrl, '_blank')}
                         >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
@@ -364,13 +370,15 @@ export function PortfolioPreview() {
               {/* Logo Display */}
               <div className="text-center">
                 <div className="relative h-80 w-full mb-6 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={selectedLogo.image}
-                    alt={selectedLogo.title}
-                    width={300}
-                    height={300}
-                    className="object-contain max-h-72 max-w-72"
-                  />
+                  {selectedLogo.image && (
+                    <Image
+                      src={selectedLogo.image}
+                      alt={selectedLogo.title}
+                      width={300}
+                      height={300}
+                      className="object-contain max-h-72 max-w-72"
+                    />
+                  )}
                 </div>
                 
                 <h3 className="text-2xl font-bold text-primary-navy mb-3">

@@ -31,7 +31,7 @@ export function WebsiteScreenshot({
     const screenshotUrl = generateScreenshotUrl(url)
     
     // Try the free service first
-    const img = new Image()
+    const img = new window.Image()
     img.onload = () => {
       setImageUrl(screenshotUrl)
       setIsLoading(false)
