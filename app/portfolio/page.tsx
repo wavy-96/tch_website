@@ -294,7 +294,7 @@ export default function PortfolioPage() {
                       {/* Website Screenshot */}
                       <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-500">
                         <RealWebsiteScreenshot
-                          url={item.websiteUrl}
+                          url={item.websiteUrl || ''}
                           alt={item.title}
                           className="w-full h-full object-cover"
                         />
@@ -316,7 +316,7 @@ export default function PortfolioPage() {
                           size="icon" 
                           variant="secondary" 
                           className="w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm"
-                          onClick={() => window.open(item.websiteUrl, '_blank')}
+                          onClick={() => item.websiteUrl && window.open(item.websiteUrl, '_blank')}
                         >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
@@ -327,7 +327,7 @@ export default function PortfolioPage() {
                         <Button 
                           size="sm" 
                           className="w-full bg-white/90 text-primary-navy hover:bg-white backdrop-blur-sm"
-                          onClick={() => window.open(item.websiteUrl, '_blank')}
+                          onClick={() => item.websiteUrl && window.open(item.websiteUrl, '_blank')}
                         >
                           <Eye className="w-4 h-4 mr-2" />
                           View Project
