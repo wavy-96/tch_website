@@ -33,8 +33,8 @@ const timelineData = [
     title: "2023",
     content: (
       <div className="space-y-4">
-        <h4 className="text-xl font-semibold text-primary-navy">The Beginning</h4>
-        <p className="text-gray-dark">
+        <h4 className="text-xl font-semibold text-white">The Beginning</h4>
+        <p className="text-white/90">
           Started with a simple mission: help small-medium businesses in Toronto, Mississauga, and across North America stand taller. Many SMBs were stuck with dated websites, generic ads, and scattered branding.
         </p>
       </div>
@@ -44,8 +44,8 @@ const timelineData = [
     title: "2024",
     content: (
       <div className="space-y-4">
-        <h4 className="text-xl font-semibold text-primary-navy">First Breakthrough</h4>
-        <p className="text-gray-dark">
+        <h4 className="text-xl font-semibold text-white">First Breakthrough</h4>
+        <p className="text-white/90">
           Combined clean design, targeted campaigns, and AI automation into one seamless experience. Our first clients saw remarkable growth in their digital presence.
         </p>
       </div>
@@ -55,8 +55,8 @@ const timelineData = [
     title: "2025",
     content: (
       <div className="space-y-4">
-        <h4 className="text-xl font-semibold text-primary-navy">Expansion</h4>
-        <p className="text-gray-dark">
+        <h4 className="text-xl font-semibold text-white">Expansion</h4>
+        <p className="text-white/90">
           Expanded our services to include comprehensive brand identity, advanced automation, and data-driven marketing strategies. Built lasting partnerships with businesses across the GTA.
         </p>
       </div>
@@ -66,8 +66,8 @@ const timelineData = [
     title: "Today",
     content: (
       <div className="space-y-4">
-        <h4 className="text-xl font-semibold text-primary-navy">Innovation</h4>
-        <p className="text-gray-dark">
+        <h4 className="text-xl font-semibold text-white">Innovation</h4>
+        <p className="text-white/90">
           Launched AI-powered solutions and automation tools that help businesses scale efficiently. Became the go-to agency for businesses who refuse to stay small.
         </p>
       </div>
