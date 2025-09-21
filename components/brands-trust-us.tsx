@@ -51,13 +51,13 @@ export function BrandsTrustUs() {
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
               >
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-xl border border-gray-200 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                  <div className="h-20 w-32 flex items-center justify-center relative">
+                  <div className={`${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'h-28 w-40' : 'h-20 w-32'} flex items-center justify-center relative`}>
                     <Image
                       src={brand.logo}
                       alt={brand.name}
-                      width={150}
-                      height={75}
-                      className="object-contain max-h-20 w-auto group-hover:scale-110 transition-transform duration-300"
+                      width={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 200 : 150}
+                      height={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 100 : 75}
+                      className={`object-contain ${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'max-h-28' : 'max-h-20'} w-auto group-hover:scale-110 transition-transform duration-300`}
                       onError={(e) => {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
@@ -85,13 +85,13 @@ export function BrandsTrustUs() {
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
               >
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-xl border border-gray-200 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                  <div className="h-20 w-32 flex items-center justify-center relative">
+                  <div className={`${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'h-28 w-40' : 'h-20 w-32'} flex items-center justify-center relative`}>
                     <Image
                       src={brand.logo}
                       alt={brand.name}
-                      width={150}
-                      height={75}
-                      className="object-contain max-h-20 w-auto group-hover:scale-110 transition-transform duration-300"
+                      width={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 200 : 150}
+                      height={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 100 : 75}
+                      className={`object-contain ${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'max-h-28' : 'max-h-20'} w-auto group-hover:scale-110 transition-transform duration-300`}
                       onError={(e) => {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
@@ -122,13 +122,13 @@ export function BrandsTrustUs() {
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
               >
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-xl border border-gray-200 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                  <div className="h-20 w-32 flex items-center justify-center relative">
+                  <div className={`${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'h-28 w-40' : 'h-20 w-32'} flex items-center justify-center relative`}>
                     <Image
                       src={brand.logo}
                       alt={brand.name}
-                      width={150}
-                      height={75}
-                      className="object-contain max-h-20 w-auto group-hover:scale-110 transition-transform duration-300"
+                      width={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 200 : 150}
+                      height={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 100 : 75}
+                      className={`object-contain ${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'max-h-28' : 'max-h-20'} w-auto group-hover:scale-110 transition-transform duration-300`}
                       onError={(e) => {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
@@ -156,13 +156,13 @@ export function BrandsTrustUs() {
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
               >
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-xl border border-gray-200 hover:shadow-2xl hover:bg-white transition-all duration-300 group">
-                  <div className="h-20 w-32 flex items-center justify-center relative">
+                  <div className={`${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'h-28 w-40' : 'h-20 w-32'} flex items-center justify-center relative`}>
                     <Image
                       src={brand.logo}
                       alt={brand.name}
-                      width={150}
-                      height={75}
-                      className="object-contain max-h-20 w-auto group-hover:scale-110 transition-transform duration-300"
+                      width={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 200 : 150}
+                      height={['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 100 : 75}
+                      className={`object-contain ${['Paper Plane', 'Trans Globe', 'Asal-E-Musaffa'].includes(brand.name) ? 'max-h-28' : 'max-h-20'} w-auto group-hover:scale-110 transition-transform duration-300`}
                       onError={(e) => {
                         console.error(`Failed to load logo: ${brand.logo}`);
                         // Show fallback text
