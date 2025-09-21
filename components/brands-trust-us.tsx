@@ -3,7 +3,12 @@
 import Image from 'next/image'
 
 const brandLogos = [
+  { name: 'Gus Taco', logo: '/Logos/Gus Taco Logo.png' },
   { name: 'Dspot', logo: '/Logos/Dspot-logo1.webp' },
+  { name: 'Paper Plane', logo: '/Logos/Paper Plane Logo.svg' },
+  { name: 'Trans Globe', logo: '/Logos/Trans Globe Logo.svg' },
+  { name: 'Asal-E-Musaffa', logo: '/Logos/Asal-E-Musaffa- Logo.svg' },
+  { name: 'Canadian Flyers', logo: '/Logos/canadian flyers international logo (1) (1).jpg' },
   { name: 'Pixel Perfect Maldives', logo: '/Logos/Logo- Pixel Perfect Maldives (1).pdf.png' },
   { name: 'Client 1', logo: '/Logos/ALL LOGOS (1).png' },
   { name: 'Client 2', logo: '/Logos/ALL LOGOS (2).png' },
@@ -40,7 +45,7 @@ export function BrandsTrustUs() {
           {/* Top row - scrolling left to right */}
           <div className="flex animate-marquee">
             {/* First set of logos for top row */}
-            {brandLogos.slice(0, 6).map((brand, index) => (
+            {brandLogos.slice(0, 9).map((brand, index) => (
               <div
                 key={`top-first-${index}`}
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
@@ -74,7 +79,7 @@ export function BrandsTrustUs() {
             ))}
             
             {/* Duplicate set for seamless loop - top row */}
-            {brandLogos.slice(0, 6).map((brand, index) => (
+            {brandLogos.slice(0, 9).map((brand, index) => (
               <div
                 key={`top-second-${index}`}
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
@@ -111,7 +116,7 @@ export function BrandsTrustUs() {
           {/* Bottom row - scrolling right to left */}
           <div className="flex animate-marquee-reverse">
             {/* First set of logos for bottom row */}
-            {brandLogos.slice(6, 12).map((brand, index) => (
+            {brandLogos.slice(9, 17).map((brand, index) => (
               <div
                 key={`bottom-first-${index}`}
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
@@ -145,7 +150,7 @@ export function BrandsTrustUs() {
             ))}
             
             {/* Duplicate set for seamless loop - bottom row */}
-            {brandLogos.slice(6, 12).map((brand, index) => (
+            {brandLogos.slice(9, 17).map((brand, index) => (
               <div
                 key={`bottom-second-${index}`}
                 className="flex-shrink-0 mx-4 flex items-center justify-center"
