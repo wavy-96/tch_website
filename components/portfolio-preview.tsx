@@ -150,12 +150,13 @@ export function PortfolioPreview() {
   const [activeCategory, setActiveCategory] = useState('Website')
   const [selectedLogo, setSelectedLogo] = useState<typeof portfolioItems[0] | null>(null)
 
-  const filteredItems = portfolioItems.filter(item => 
-    activeCategory === 'Website' ? item.category === 'Website' : 
-    activeCategory === 'Logos' ? item.category === 'Logos' :
-    activeCategory === 'Branding' ? item.category === 'Branding' :
-    item.category === activeCategory
-  )
+  const filteredItems = portfolioItems.filter(item => {
+    if (activeCategory === 'Website') return item.category === 'Website'
+    if (activeCategory === 'Logos') return item.category === 'Logos'
+    if (activeCategory === 'Branding') return item.category === 'Branding'
+    if (activeCategory === 'Graphic Designing') return item.category === 'Logos' // Show logos for Graphic Designing
+    return item.category === activeCategory
+  })
 
   return (
     <section className="section-padding bg-white">
