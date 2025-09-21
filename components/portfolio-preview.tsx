@@ -55,14 +55,6 @@ const portfolioItems = [
   // Logo items
   {
     id: 7,
-    title: 'Anytime Tots',
-    category: 'Logos',
-    description: 'Childcare and early education branding with playful, friendly design elements',
-    image: '/Logos/Anytime Tots (7).png',
-    results: ['Brand recognition', 'Child-friendly appeal', 'Professional credibility']
-  },
-  {
-    id: 8,
     title: 'Pixel Perfect Maldives',
     category: 'Logos',
     description: 'Luxury travel and photography branding with elegant, sophisticated design',
@@ -70,7 +62,7 @@ const portfolioItems = [
     results: ['Premium positioning', 'Visual storytelling', 'Brand differentiation']
   },
   {
-    id: 9,
+    id: 8,
     title: 'Pack Spectrum - Tax Accountant',
     category: 'Logos',
     description: 'Professional tax accounting logo with modern design and trustworthy appeal',
@@ -78,7 +70,7 @@ const portfolioItems = [
     results: ['Professional credibility', 'Trust-building design', 'Tax industry appeal']
   },
   {
-    id: 10,
+    id: 9,
     title: 'Marie Hogan',
     category: 'Logos',
     description: 'Elegant personal branding with sophisticated design elements',
@@ -86,7 +78,7 @@ const portfolioItems = [
     results: ['Personal brand strength', 'Elegant presentation', 'Professional appeal']
   },
   {
-    id: 11,
+    id: 10,
     title: 'Hummin Bird Interactive',
     category: 'Logos',
     description: 'Interactive technology logo with dynamic design and modern aesthetics',
@@ -94,65 +86,65 @@ const portfolioItems = [
     results: ['Tech-forward design', 'Interactive appeal', 'Modern positioning']
   },
   {
-    id: 12,
+    id: 11,
     title: 'Sphere - A Media Agency',
     category: 'Logos',
     description: 'Creative media agency logo with bold design and creative energy',
     image: '/Logos/ALL LOGOS (4).png',
     results: ['Creative energy', 'Media industry focus', 'Bold brand presence']
   },
-  // Photography items
+  // Branding items (moved from Photography)
   {
-    id: 13,
+    id: 12,
     title: 'Foreign - Streetwear Jewelry Brand',
-    category: 'Photography',
+    category: 'Branding',
     description: 'Professional brand photography for streetwear jewelry collection',
     image: '/Photography/Generated Image September 07, 2025 - 11_26PM.jpeg',
     results: ['Professional branding', 'Visual storytelling', 'Brand differentiation']
   },
   {
-    id: 14,
+    id: 13,
     title: 'Foreign - Product Showcase',
-    category: 'Photography',
+    category: 'Branding',
     description: 'High-quality product photography highlighting jewelry details and craftsmanship',
     image: '/Photography/Generated Image September 07, 2025 - 11_32PM.jpeg',
     results: ['Product appeal', 'Detail highlighting', 'Professional presentation']
   },
   {
-    id: 15,
+    id: 14,
     title: 'Foreign - Lifestyle Photography',
-    category: 'Photography',
+    category: 'Branding',
     description: 'Lifestyle brand photography showcasing jewelry in authentic streetwear context',
     image: '/Photography/Generated Image September 07, 2025 - 11_40PM.jpeg',
     results: ['Lifestyle integration', 'Brand authenticity', 'Visual appeal']
   },
   {
-    id: 16,
+    id: 15,
     title: 'Foreign - Brand Storytelling',
-    category: 'Photography',
+    category: 'Branding',
     description: 'Narrative-driven photography that tells the brand story through visual elements',
     image: '/Photography/Generated Image September 08, 2025 - 1_29AM.png',
     results: ['Brand narrative', 'Emotional connection', 'Storytelling impact']
   },
   {
-    id: 17,
+    id: 16,
     title: 'Foreign - Creative Direction',
-    category: 'Photography',
+    category: 'Branding',
     description: 'Artistic photography with creative direction and unique visual perspectives',
     image: '/Photography/Generated Image September 08, 2025 - 1_34AM.png',
     results: ['Creative vision', 'Artistic appeal', 'Unique perspective']
   },
   {
-    id: 18,
+    id: 17,
     title: 'Foreign - Brand Identity',
-    category: 'Photography',
+    category: 'Branding',
     description: 'Comprehensive brand photography establishing visual identity and market presence',
     image: '/Photography/Generated Image September 08, 2025 - 1_37AM.png',
     results: ['Brand identity', 'Market positioning', 'Visual consistency']
   }
 ]
 
-const categories = ['Website', 'Graphic Designing', 'Photography', 'Logos', 'Branding']
+const categories = ['Website', 'Graphic Designing', 'Logos', 'Branding']
 
 export function PortfolioPreview() {
   const [activeCategory, setActiveCategory] = useState('Website')
@@ -161,6 +153,7 @@ export function PortfolioPreview() {
   const filteredItems = portfolioItems.filter(item => 
     activeCategory === 'Website' ? item.category === 'Website' : 
     activeCategory === 'Logos' ? item.category === 'Logos' :
+    activeCategory === 'Branding' ? item.category === 'Branding' :
     item.category === activeCategory
   )
 
@@ -239,8 +232,8 @@ export function PortfolioPreview() {
                         </Button>
                       </div>
                     </>
-                  ) : item.category === 'Photography' ? (
-                    // Photography Display
+                  ) : item.category === 'Branding' ? (
+                    // Branding Display
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
                         {item.image && (
@@ -253,7 +246,7 @@ export function PortfolioPreview() {
                           />
                         )}
                       </div>
-                      {/* Photography Overlay */}
+                      {/* Branding Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
                       {/* Category Badge */}

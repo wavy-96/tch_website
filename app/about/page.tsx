@@ -10,18 +10,12 @@ import { ArrowRight, Target, Palette, Zap, TrendingUp } from 'lucide-react'
 const locationData = [
   {
     id: 1,
-    name: "India",
-    designation: "Asia Operations",
-    image: "/Logos/india_logo.jpg"
-  },
-  {
-    id: 2,
     name: "United States",
     designation: "North America",
     image: "/Logos/usa_logo.jpg"
   },
   {
-    id: 3,
+    id: 2,
     name: "Canada",
     designation: "North America",
     image: "/Logos/canada_logo.png"
@@ -146,10 +140,10 @@ export default function AboutPage() {
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-h2 font-roboto font-bold text-primary-navy mb-4">
-              Serving customers across North America and Asia
+              Serving customers across North America
             </h2>
             <p className="text-body text-gray-dark max-w-2xl mx-auto">
-              We work with businesses across multiple continents, bringing our expertise to clients worldwide.
+              We work with businesses across North America, bringing our expertise to clients in the United States and Canada.
             </p>
           </div>
           
