@@ -228,7 +228,7 @@ export default function ContactPage() {
                               value={formData.phone}
                               onChange={(e) => handleInputChange('phone', e.target.value)}
                               className="w-full"
-                              placeholder="(647) 917-8641"
+                              placeholder="000 0000000"
                             />
                           </div>
                           <div>
@@ -331,7 +331,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h4 className="font-medium text-gray-900">Phone</h4>
-                        <p className="text-gray-600">+1 (647) 917-8641</p>
+                        <p className="text-gray-600">000 0000000</p>
                       </div>
                     </div>
 
