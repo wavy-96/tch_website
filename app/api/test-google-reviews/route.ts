@@ -3,11 +3,12 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function GET(request: NextRequest) {
   try {
     const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY
-    const PLACE_ID = process.env.GOOGLE_PLACE_ID || process.env.Google_Place_ID
+    const PLACE_ID = process.env.GOOGLE_PLACE_ID || process.env.Google_Place_ID || process.env.Google_Place_id
     
     console.log('API Key exists:', !!GOOGLE_PLACES_API_KEY)
     console.log('Place ID exists:', !!PLACE_ID)
     console.log('Place ID value:', PLACE_ID)
+    console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('GOOGLE') || key.includes('PLACE')))
     
     if (!GOOGLE_PLACES_API_KEY || !PLACE_ID) {
       return NextResponse.json({

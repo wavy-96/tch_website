@@ -4,7 +4,7 @@ export async function GET(request: NextRequest) {
   try {
     // Google Places API configuration
     const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY
-    const PLACE_ID = process.env.GOOGLE_PLACE_ID // Your business Place ID
+    const PLACE_ID = process.env.GOOGLE_PLACE_ID || process.env.Google_Place_ID || process.env.Google_Place_id // Your business Place ID
     
     if (!GOOGLE_PLACES_API_KEY || !PLACE_ID) {
       return NextResponse.json(
