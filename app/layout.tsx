@@ -65,6 +65,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Suppress browser extension runtime errors
+              window.addEventListener('error', function(e) {
+                if (e.message && e.message.includes('runtime.lastError')) {
+                  e.preventDefault();
+                  return false;
+                }
+              });
+            `,
+          }}
+        />
+      </head>
       <body className="font-inter antialiased">
         <SmoothScrollProvider>
           {children}

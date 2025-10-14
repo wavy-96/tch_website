@@ -5,12 +5,11 @@ export async function GET(request: NextRequest) {
     const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || process.env.Google_Place_API_New
     const PLACE_ID = process.env.GOOGLE_PLACE_ID || process.env.Google_Place_ID || process.env.Google_Place_id
     
-    console.log('API Key exists:', !!GOOGLE_PLACES_API_KEY)
-    console.log('API Key value:', GOOGLE_PLACES_API_KEY ? `${GOOGLE_PLACES_API_KEY.substring(0, 10)}...` : 'undefined')
-    console.log('Place ID exists:', !!PLACE_ID)
-    console.log('Place ID value:', PLACE_ID)
-    console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('GOOGLE') || key.includes('PLACE')))
-    console.log('Direct API key check:', process.env.GOOGLE_PLACES_API_KEY ? 'FOUND' : 'NOT FOUND')
+    // Debug logging (only in development)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('API Key exists:', !!GOOGLE_PLACES_API_KEY)
+      console.log('Place ID exists:', !!PLACE_ID)
+    }
     
     if (!GOOGLE_PLACES_API_KEY || !PLACE_ID) {
       return NextResponse.json({
