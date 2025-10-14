@@ -1,6 +1,10 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials'
 
-const testimonials = [
+// Fallback testimonials in case Google Reviews API is not configured
+const fallbackTestimonials = [
   {
     quote: "The Creative Horse elevated our brand and turned attention into real leads. Their attention to detail and innovative approach completely transformed our digital presence.",
     name: "Sarah Chen",
@@ -34,6 +38,58 @@ const testimonials = [
 ]
 
 export function Testimonials() {
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchGoogleReviews = async () => {
+      try {
+        const response = await fetch('/api/google-reviews')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.reviews && data.reviews.length > 0) {
+            // Use Google Reviews if available
+            setTestimonials(data.reviews)
+          } else {
+            // Fallback to static testimonials
+            setTestimonials(fallbackTestimonials)
+          }
+        } else {
+          // Fallback to static testimonials if API fails
+          setTestimonials(fallbackTestimonials)
+        }
+      } catch (error) {
+        console.log('Google Reviews not configured, using fallback testimonials')
+        // Fallback to static testimonials
+        setTestimonials(fallbackTestimonials)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchGoogleReviews()
+  }, [])
+
+  if (isLoading) {
+    return (
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-h2 font-roboto font-bold text-primary-navy mb-4">
+              Success Stories
+            </h2>
+            <p className="text-body text-gray-dark max-w-2xl mx-auto">
+              Loading testimonials...
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-blue"></div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="section-padding bg-white">
       <div className="container-max">

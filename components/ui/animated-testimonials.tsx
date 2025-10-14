@@ -2,7 +2,7 @@
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type Testimonial = {
@@ -10,6 +10,10 @@ type Testimonial = {
   name: string;
   designation: string;
   src: string;
+  rating?: number; // Google Reviews star rating (1-5)
+  time?: number; // Google Reviews timestamp
+  author_url?: string; // Google Reviews author URL
+  relative_time_description?: string; // "2 months ago"
 };
 export const AnimatedTestimonials = ({
   testimonials,
@@ -41,6 +45,22 @@ export const AnimatedTestimonials = ({
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
+  };
+
+  // Star rating component for Google Reviews
+  const StarRating = ({ rating }: { rating: number }) => {
+    return (
+      <div className="flex items-center space-x-1 mb-2">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <Star
+            key={star}
+            className={`w-4 h-4 ${
+              star <= rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+            }`}
+          />
+        ))}
+      </div>
+    );
   };
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
@@ -118,6 +138,9 @@ export const AnimatedTestimonials = ({
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
+            {testimonials[active].rating && (
+              <StarRating rating={testimonials[active].rating!} />
+            )}
             <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
