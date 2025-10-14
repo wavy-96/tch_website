@@ -26,7 +26,7 @@ export function TheCreativeHorseNavbar() {
 
   return (
     <Navbar className="fixed top-0 left-0 right-0 z-50">
-      <NavBody>
+      <NavBody className="!fixed !top-4 !left-4 !right-4 !z-50 hidden lg:flex">
         {/* Logo */}
         <Logo href="/" size="md" variant="blue" />
 
@@ -46,7 +46,7 @@ export function TheCreativeHorseNavbar() {
       </NavBody>
 
       {/* Mobile Navigation */}
-      <MobileNav>
+      <MobileNav className="!fixed !top-4 !left-4 !right-4 !z-50 lg:hidden">
         <MobileNavHeader>
           {/* Mobile Logo */}
           <Logo href="/" size="md" variant="blue" />
