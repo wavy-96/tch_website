@@ -25,50 +25,54 @@ const servicePackages = {
       id: "gold",
       name: "Gold Logo Package",
       features: [
-        "2 logo Concepts",
-        "4 Revisions",
-        "Final Files PNG, JPG, PDF.",
-        "24-36 Hours Turn Around",
-        "100% Ownership Rights",
-        "Complete Customer Satisfaction"
+        "2 Logo Concepts",
+        "2 Revisions",
+        "Mini Brand Sheet",
+        "Primary + Secondary Logo",
+        "Favicon + Social Icon",
+        "File Bundle (AI, EPS, PNG, JPG, PDF)",
+        "5–7 Days Turnaround",
+        "Full Ownership"
       ],
-      description: "Suitable for potential super-startups and brand revamps for companies."
+      description: "Perfect for startups and small businesses looking for professional branding."
     },
     {
       id: "platinum",
       name: "Platinum Logo Package",
       features: [
-        "4 Logo Concepts",
-        "8 Revisions",
-        "18-24 Hours Turn Around",
-        "Designed by 2 Dedicated Designers",
-        "Final Files PNG, JPG, PDF, SVG, EPS.",
-        "Business Card Design",
-        "Favicon",
-        "100% Ownership Rights",
-        "100% Unique Design Guarantee",
-        "100% Money Back Guarantee*"
+        "3 Logo Concepts",
+        "4 Revisions",
+        "Moodboard + Strategy",
+        "Primary + Secondary + Monogram",
+        "Color Palette + Typography",
+        "Social Media Kit (3 posts)",
+        "Business Card + Letterhead",
+        "Brand Guidelines (10 pages)",
+        "File Bundle (AI, EPS, SVG, PNG, JPG, PDF)",
+        "10–14 Days Turnaround",
+        "Full Ownership"
       ],
-      description: "Suitable for potential super-startups and brand revamps for companies."
+      description: "Comprehensive branding solution for growing businesses and established companies."
     },
     {
       id: "diamond",
       name: "Diamond Logo Package",
       features: [
-        "6 Logo Concepts",
-        "12 Revisions",
-        "Flyer Design",
-        "Brochure Design",
-        "Social Media Icon",
-        "Favicon",
-        "Final Files PNG, JPG, PDF, SVG, PSD, EPS.",
-        "Designed by 4 Award Winning Designers",
-        "12-18 Hours Turn Around",
-        "Any Changes Within 30 Days Will Be Free",
-        "100% Ownership Rights",
-        "Designing Until Complete Satisfaction"
+        "5 Logo Concepts",
+        "6 Revisions",
+        "Brand Workshop",
+        "Logo Family + Brand Pattern",
+        "Icon Mini Set (6–8)",
+        "Logo Animation (MP4/GIF)",
+        "Social Kit (10 Canva templates)",
+        "Presentation Deck",
+        "Extended Guidelines (24 pages)",
+        "Launch Mockups",
+        "File Bundle (AI, EPS, SVG, PSD, PNG, JPG, PDF)",
+        "3–4 Weeks Turnaround",
+        "Full Ownership"
       ],
-      description: "Suitable for potential super-startups and brand revamps for companies."
+      description: "Complete brand identity system for enterprise-level businesses and major rebrands."
     }
   ],
   "website-development": [
@@ -86,7 +90,7 @@ const servicePackages = {
         "Social Links Integration",
         "100% Satisfaction Guarantee",
         "100% Ownership Rights",
-        "Mobile Responsive Will Be Additional $200*",
+        "Mobile Responsive",
         "CMS Will Be Additional $250*"
       ],
       description: "Suitable for potential super-startups and brand revamps for companies."
@@ -110,7 +114,7 @@ const servicePackages = {
         "User Journey",
         "100% Satisfaction Guarantee",
         "100% Ownership Rights",
-        "Mobile Responsive will be Additional $150*"
+        "Mobile Responsive"
       ],
       description: "Suitable for potential super-startups and brand revamps for companies."
     },
@@ -238,6 +242,10 @@ const servicePackages = {
         "Social Media Kit",
         "Website Branding",
         "Marketing Materials",
+        "Content Creation",
+        "Photography",
+        "Banner Design",
+        "Flyer Design",
         "Brand Strategy Consultation",
         "100% Ownership Rights",
         "100% Satisfaction Guarantee"
@@ -420,93 +428,65 @@ const servicePackages = {
   "social-media": [
     {
       id: "bronze",
-      name: "Bronze Monthly Package",
+      name: "Bronze Monthly Package (Starter Plan)",
       features: [
-        "Total Post 12/3 Post a Week",
-        "3 Reels Per Month",
-        "4 Graphic Posts",
-        "5 Carousel",
-        "4 Stories + Highlights (Complimentary)",
-        "Facebook",
-        "Instagram",
-        "Facebook and Instagram Ads",
-        "Total 1 Campaign Per Month",
-        "5 Adsets Per Month",
-        "Account Setup/Optimization (Cover Photo, About Section, Display Picture, and More)",
-        "Monthly Social Posts Scheduling",
+        "Total 12 Posts / 3 per Week",
+        "Facebook + Instagram",
+        "Stories + Highlights (Complimentary)",
+        "Reels, Graphics, Carousels Included",
+        "1 Campaign / Month",
+        "Ad Setup + Management",
+        "Account Setup & Optimization",
+        "Monthly Scheduling",
         "Meta Business Manager Setup",
-        "CRM Integeration (Database Management)",
-        "Cross-Platform Integration (Facebook, Whatsapp, Instagram, Pixels)",
-        "01 Dedicated Social Media Copywriter",
-        "01 Dedicated Graphic Designer",
-        "01 Dedicated Ads Expert",
-        "01 Dedicated Account Manager"
+        "CRM Integration",
+        "Cross-Platform Integration",
+        "Dedicated Team Support"
       ],
-      description: "Suitable for potential super-startups and brand revamps for companies."
+      description: "Perfect for small businesses and startups looking to establish their social media presence."
     },
     {
-      id: "standard",
-      name: "Standard Monthly Package",
+      id: "silver",
+      name: "Silver Monthly Package (Standard Plan)",
       features: [
-        "Total Post 16/4 Post a Week",
-        "4 Reels Per Month",
-        "6 Graphic Posts",
-        "6 Carousel",
-        "6 Stories + Highlights (Complimentary)",
-        "Facebook",
-        "Instagram",
-        "Tiktok/LinkedIn",
-        "Campaigns on FB, Insta, and Tiktok/LinkedIn",
-        "Total 3 Campaign Per Month",
-        "Unlimited Adsets Per Month",
-        "Detailed Campaign Monitering",
+        "Total 16 Posts / 4 per Week",
+        "Facebook + Instagram + TikTok/LinkedIn",
+        "Stories + Highlights (Complimentary)",
+        "Reels, Graphics, Carousels Included",
+        "3 Campaigns / Month",
+        "Ad Setup + Management",
+        "Detailed Campaign Monitoring",
         "All Ad Objectives Supported",
-        "Account Setup/Optimization (Cover Photo, About Section, Display Picture, and More)",
-        "Monthly Social Posts Scheduling",
+        "Account Setup & Optimization",
+        "Monthly Scheduling",
         "Meta Business Manager Setup",
-        "Tiktok/LinkedIn Ads Account Setup",
-        "CRM Integeration (Database Management)",
-        "Cross-Platform Integration (Facebook, Whatsapp, Instagram, Pixels)",
-        "02 Dedicated Social Media Copywriter",
-        "02 Dedicated Graphic Designer",
-        "02 Dedicated Ads Expert",
-        "01 Dedicated Account Manager"
+        "CRM Integration",
+        "Cross-Platform Integration",
+        "Dedicated Team Support"
       ],
-      description: "Suitable for potential super-startups and brand revamps for companies."
+      description: "Comprehensive social media solution for growing businesses with multi-platform presence."
     },
     {
-      id: "pro",
-      name: "Pro Monthly Package",
+      id: "gold",
+      name: "Gold Monthly Package (Pro Plan)",
       features: [
-        "Total Post 24/6 Post a Week",
-        "6 Reels Per Month",
-        "9 Graphic Posts",
-        "9 Carousel",
-        "6 Stories + Highlights (Complimentary)",
-        "Facebook",
-        "Instagram",
-        "Tiktok/LinkedIn",
-        "Twitter",
-        "LinkedIn",
-        "Pinterest",
-        "Snapchat",
-        "Unlimited Campaigns on FB, Insta, Tiktok, LinkedIn, Snapchat, Pinterest, and Twitter",
-        "Unlimited Campaigns Per Month",
-        "Detailed Campaign Monitering",
+        "Total 24 Posts / 6 per Week",
+        "Facebook + Instagram + TikTok + LinkedIn + Twitter + Pinterest + Snapchat",
+        "Stories + Highlights (Complimentary)",
+        "Reels, Graphics, Carousels Included",
+        "Unlimited Campaigns / Month",
+        "Ad Setup + Management",
+        "Detailed Campaign Monitoring",
         "All Ad Objectives Supported",
-        "Account Setup/Optimization (Cover Photo, About Section, Display Picture, and More)",
-        "Monthly Social Posts Scheduling",
+        "Account Setup & Optimization",
+        "Monthly Scheduling",
         "Meta Business Manager Setup",
-        "All Ads Account Setup (FB, Insta, Tiktok, LinkedIn, Snapchat, Pinterest, and Twitter)",
-        "CRM Integration (Database Management)",
-        "Cross-Platform Integeration (Facebook, WhatsApp, Instagram, Pixels)",
-        "Social Community Management (Query + Commnet Responses)",
-        "03 Dedicated Social Media Copywriter",
-        "03 Dedicated Graphic Designer",
-        "03 Dedicated Ads Expert",
-        "01 Dedicated Account Manager"
+        "CRM Integration",
+        "Cross-Platform Integration",
+        "Social Community Management",
+        "Dedicated Team Support"
       ],
-      description: "Suitable for potential super-startups and brand revamps for companies."
+      description: "Complete social media management for enterprise-level businesses with full platform coverage."
     }
   ]
 };

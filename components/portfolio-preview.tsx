@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, ExternalLink, X } from 'lucide-react'
 import { RealWebsiteScreenshot } from '@/components/real-website-screenshot'
+import { AnimatedLaptopMockup } from '@/components/laptop-mockup'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -15,46 +16,52 @@ const portfolioItems = [
     title: 'PainTax - Accounting Services',
     category: 'Website',
     description: 'Professional accounting website helping immigrants and small businesses with tax services',
-    websiteUrl: 'https://paintax.ca/'
+    websiteUrl: 'https://paintax.ca/',
+    image: '/Website Portfolio/Paintax.1.png'
   },
   {
     id: 2,
     title: 'Dr. Sany - Natural Remedies',
     category: 'Website',
     description: 'E-commerce website for natural health remedies and wellness products',
-    websiteUrl: 'https://drsany.com/en-us'
+    websiteUrl: 'https://drsany.com/en-us',
+    image: '/Website Portfolio/Dr Sany.png'
   },
   {
     id: 3,
     title: 'The Paper Plane Store',
     category: 'Website',
     description: 'Creative e-commerce platform for unique paper products and stationery',
-    websiteUrl: 'https://thepaperplanestore.com/'
+    websiteUrl: 'https://thepaperplanestore.com/',
+    image: '/Website Portfolio/Paperplane store.png'
   },
   {
     id: 4,
-    title: 'Track Accounting',
+    title: 'Ahmad Law - Legal Services',
     category: 'Website',
-    description: 'Professional accounting and bookkeeping services website',
-    websiteUrl: 'https://trackaccounting.ca/'
+    description: 'Professional legal services website with comprehensive legal solutions',
+    websiteUrl: '#',
+    image: '/Website Portfolio/Ahmad Law.png'
   },
   {
     id: 5,
     title: 'Pixel Perfect Maldives',
     category: 'Website',
     description: 'Luxury travel and photography services in the Maldives',
-    websiteUrl: 'https://pixelperfectmaldives.com/'
+    websiteUrl: 'https://pixelperfectmaldives.com/',
+    image: '/Website Portfolio/Pixel Maldives.png'
   },
   {
     id: 6,
     title: 'Brigient - Digital Solutions',
     category: 'Website',
     description: 'Digital marketing and technology solutions for modern businesses',
-    websiteUrl: 'https://brigient.com/'
+    websiteUrl: 'https://brigient.com/',
+    image: '/Website Portfolio/Brigient.png'
   },
   // Logo items
   {
-    id: 7,
+    id: 8,
     title: 'Pixel Perfect Maldives',
     category: 'Logos',
     description: 'Luxury travel and photography branding with elegant, sophisticated design',
@@ -62,7 +69,7 @@ const portfolioItems = [
     results: ['Premium positioning', 'Visual storytelling', 'Brand differentiation']
   },
   {
-    id: 8,
+    id: 10,
     title: 'Pack Spectrum - Tax Accountant',
     category: 'Logos',
     description: 'Professional tax accounting logo with modern design and trustworthy appeal',
@@ -70,7 +77,7 @@ const portfolioItems = [
     results: ['Professional credibility', 'Trust-building design', 'Tax industry appeal']
   },
   {
-    id: 9,
+    id: 10,
     title: 'Marie Hogan',
     category: 'Logos',
     description: 'Elegant personal branding with sophisticated design elements',
@@ -141,6 +148,55 @@ const portfolioItems = [
     description: 'Comprehensive brand photography establishing visual identity and market presence',
     image: '/Photography/Generated Image September 08, 2025 - 1_37AM.png',
     results: ['Brand identity', 'Market positioning', 'Visual consistency']
+  },
+  // Graphic Design items
+  {
+    id: 18,
+    title: 'Mystique Scents - Brand Collection',
+    category: 'Graphic Designing',
+    description: 'Premium fragrance brand graphics with elegant design and sophisticated color palette',
+    image: '/Graphic Designing/Mystiquescents-1001-1.png',
+    results: ['Premium positioning', 'Brand elegance', 'Visual appeal']
+  },
+  {
+    id: 19,
+    title: 'Sober Scents - Brand Design',
+    category: 'Graphic Designing',
+    description: 'Clean and minimalist fragrance brand graphics with modern appeal',
+    image: '/Graphic Designing/Soberscents-1406-02.png',
+    results: ['Modern design', 'Clean aesthetics', 'Brand differentiation']
+  },
+  {
+    id: 20,
+    title: 'Creative Design - August Collection',
+    category: 'Graphic Designing',
+    description: 'Modern graphic design with bold colors and contemporary styling',
+    image: '/Graphic Designing/Aug 16.png',
+    results: ['Bold design', 'Color impact', 'Modern aesthetics']
+  },
+  {
+    id: 21,
+    title: 'Digital Graphics - Modern Design',
+    category: 'Graphic Designing',
+    description: 'Contemporary digital graphics with innovative design approach',
+    image: '/Graphic Designing/6.png',
+    results: ['Innovation', 'Digital excellence', 'Modern design']
+  },
+  {
+    id: 22,
+    title: 'Mystique Scents - Product Design',
+    category: 'Graphic Designing',
+    description: 'Sophisticated product graphics showcasing luxury fragrance branding',
+    image: '/Graphic Designing/Mystiquescents-1001-3.png',
+    results: ['Luxury branding', 'Product appeal', 'Design sophistication']
+  },
+  {
+    id: 23,
+    title: 'Creative Design - Brand Graphics',
+    category: 'Graphic Designing',
+    description: 'Professional brand graphics with clean lines and modern typography',
+    image: '/Graphic Designing/Aug 19.png',
+    results: ['Professional design', 'Typography excellence', 'Clean aesthetics']
   }
 ]
 
@@ -154,7 +210,7 @@ export function PortfolioPreview() {
     if (activeCategory === 'Website') return item.category === 'Website'
     if (activeCategory === 'Logos') return item.category === 'Logos'
     if (activeCategory === 'Branding') return item.category === 'Branding'
-    if (activeCategory === 'Graphic Designing') return item.category === 'Logos' // Show logos for Graphic Designing
+    if (activeCategory === 'Graphic Designing') return item.category === 'Graphic Designing'
     return item.category === activeCategory
   })
 
@@ -198,7 +254,7 @@ export function PortfolioPreview() {
                 {/* Background - Website Screenshot or Logo Image */}
                 <div className="relative h-64 overflow-hidden bg-gray-100">
                   {item.category === 'Logos' ? (
-                    // Logo Display
+                    // Clean Logo Display
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
                         {item.image && (
@@ -208,69 +264,141 @@ export function PortfolioPreview() {
                             width={200}
                             height={200}
                             className="object-contain max-h-40 max-w-40 group-hover:scale-110 transition-transform duration-300"
+                            quality={95}
                           />
                         )}
                       </div>
-                      {/* Logo Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="bg-primary-blue text-white px-3 py-1 rounded-full text-small font-medium backdrop-blur-sm">
+                      {/* Minimal overlay - only on hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                      
+                      {/* Category Badge - minimal */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-white/90 text-gray-800 px-2 py-1 rounded text-xs font-medium">
                           {item.category}
                         </span>
                       </div>
                       
-                      {/* Click to Enlarge Button */}
-                      <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {/* Click to Enlarge Button - only on hover */}
+                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <Button 
                           size="icon" 
                           variant="secondary" 
-                          className="w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm"
+                          className="w-8 h-8 bg-white/90 hover:bg-white"
                           onClick={() => setSelectedLogo(item)}
                         >
-                          <ExternalLink className="w-4 h-4" />
+                          <ExternalLink className="w-3 h-3" />
                         </Button>
                       </div>
                     </>
                   ) : item.category === 'Branding' ? (
-                    // Branding Display
+                    // Clean Branding Display
                     <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                        {item.image && (
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            width={400}
-                            height={400}
-                            className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
-                          />
-                        )}
-                      </div>
-                      {/* Branding Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <Image
+                        src={item.image || ''}
+                        alt={item.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        quality={95}
+                      />
+                      
+                      {/* Minimal overlay - only on hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="bg-primary-blue text-white px-3 py-1 rounded-full text-small font-medium backdrop-blur-sm">
+                      {/* Category Badge - minimal */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-white/90 text-gray-800 px-2 py-1 rounded text-xs font-medium">
                           {item.category}
                         </span>
                       </div>
 
-                      {/* View Image Button */}
-                      <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {/* View Image Button - only on hover */}
+                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <Button
                           size="icon"
                           variant="secondary"
-                          className="w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm"
+                          className="w-8 h-8 bg-white/90 hover:bg-white"
                           onClick={() => item.image && window.open(item.image, '_blank')}
                         >
-                          <ExternalLink className="w-4 h-4" />
+                          <ExternalLink className="w-3 h-3" />
+                        </Button>
+                      </div>
+                    </>
+                  ) : item.category === 'Graphic Designing' ? (
+                    // Clean Graphic Design Display
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                        <Image
+                          src={item.image || ''}
+                          alt={item.title}
+                          width={300}
+                          height={300}
+                          className="object-contain max-h-64 max-w-64 group-hover:scale-110 transition-transform duration-300"
+                          quality={95}
+                        />
+                      </div>
+                      
+                      {/* Minimal overlay - only on hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+
+                      {/* Category Badge - minimal */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-white/90 text-gray-800 px-2 py-1 rounded text-xs font-medium">
+                          {item.category}
+                        </span>
+                      </div>
+
+                      {/* View Image Button - only on hover */}
+                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Button
+                          size="icon"
+                          variant="secondary"
+                          className="w-8 h-8 bg-white/90 hover:bg-white"
+                          onClick={() => item.image && window.open(item.image, '_blank')}
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                        </Button>
+                      </div>
+                    </>
+                  ) : item.image ? (
+                    // Laptop Mockup Display for Website Screenshots
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+                        <AnimatedLaptopMockup
+                          websiteImage={item.image}
+                          alt={item.title}
+                          className="w-full h-full flex items-center justify-center"
+                        />
+                      </div>
+                      
+                      {/* Minimal overlay - only on hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+
+                      {/* Category Badge - minimal */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-white/90 text-gray-800 px-2 py-1 rounded text-xs font-medium">
+                          {item.category}
+                        </span>
+                      </div>
+
+                      {/* Action Button - only on hover */}
+                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Button
+                          size="icon"
+                          variant="secondary"
+                          className="w-8 h-8 bg-white/90 hover:bg-white"
+                          onClick={() => {
+                            if (item.websiteUrl && item.websiteUrl !== '#') {
+                              window.open(item.websiteUrl, '_blank')
+                            }
+                          }}
+                        >
+                          <ExternalLink className="w-3 h-3" />
                         </Button>
                       </div>
                     </>
                   ) : (
-                    // Website Screenshot Display
+                    // Fallback for items without images
                     <>
                       {/* Fallback background pattern */}
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200" />
@@ -311,12 +439,12 @@ export function PortfolioPreview() {
                   )}
                 </div>
                 
-                {/* Content Section */}
-                <CardContent className="p-6">
-                  <h3 className="text-h3 font-roboto font-semibold text-primary-navy mb-2">
+                {/* Content Section - Minimal */}
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-medium text-gray-900 mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-body text-gray-dark">
+                  <p className="text-sm text-gray-600 line-clamp-2">
                     {item.description}
                   </p>
                 </CardContent>

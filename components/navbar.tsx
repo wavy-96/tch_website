@@ -13,13 +13,13 @@ import {
   NavbarButton,
 } from '@/components/ui/resizable-navbar'
 import { Logo } from '@/components/logo'
-import { ContactModal } from '@/components/contact-modal'
 
 const navItems = [
   { name: 'Home', link: '/' },
   { name: 'Services', link: '/services' },
   { name: 'Portfolio', link: '/portfolio' },
   { name: 'About', link: '/about' },
+  { name: 'Contact', link: '/contact' },
 ]
 
 export function TheCreativeHorseNavbar() {
@@ -38,7 +38,11 @@ export function TheCreativeHorseNavbar() {
         />
 
         {/* CTA Button */}
-        <ContactModal />
+        <Link href="/contact">
+          <NavbarButton className="inline-flex items-center justify-center whitespace-nowrap rounded-button text-cta font-roboto font-bold uppercase tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary-blue text-white hover:bg-opacity-90 hover:shadow-lg h-12 px-8 py-4">
+            Contact
+          </NavbarButton>
+        </Link>
       </NavBody>
 
       {/* Mobile Navigation */}
@@ -70,7 +74,11 @@ export function TheCreativeHorseNavbar() {
             </Link>
           ))}
           <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-            <ContactModal />
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <NavbarButton className="w-full bg-primary-blue text-white hover:bg-primary-blue/90">
+                Contact
+              </NavbarButton>
+            </Link>
           </div>
         </MobileNavMenu>
       </MobileNav>

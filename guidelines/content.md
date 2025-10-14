@@ -195,14 +195,14 @@ Intro Statement
 Form CTA
  “Fill out the form or choose a time that works for you.”
 Direct Contact
-Email: hello@thecreativehorse.ca
+Email: Contact@thecreativehorse.ca
 
 
-Phone: +1 (000) 000-0000
+Phone: +1 (647) 917-8641
 
 
 Map Placeholder
- “Proudly serving Toronto, Mississauga, and the GTA.”
+ "6725 Millcreek Drive, Mississauga, Ontario"
 Thank-you Automation (Email):
  “Thanks for reaching out! Our team will review your business and get back to you within 24 hours with your personalized audit or next steps.”
 

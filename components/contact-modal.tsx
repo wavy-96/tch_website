@@ -30,12 +30,43 @@ export function ContactModal() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {}
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log('Form submitted with data:', formData)
+    
+    if (!validateForm()) {
+      console.log('Form validation failed')
+      return
+    }
+    
     setIsSubmitting(true)
+    setErrors({})
     
     try {
+      console.log('Sending request to /api/contact...')
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -43,17 +74,19 @@ export function ContactModal() {
         },
         body: JSON.stringify(formData),
       })
+      console.log('Response received:', response.status, response.statusText)
 
       if (response.ok) {
         setIsSubmitted(true)
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
       } else {
         const errorData = await response.json()
         console.error('Error:', errorData.error)
-        alert('Failed to send message. Please try again.')
+        setErrors({ submit: 'Failed to send message. Please try again.' })
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Failed to send message. Please try again.')
+      setErrors({ submit: 'Failed to send message. Please try again.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -61,6 +94,10 @@ export function ContactModal() {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }))
+    }
   }
 
   const resetForm = () => {
@@ -192,9 +229,12 @@ export function ContactModal() {
                                 required
                                 value={formData.name}
                                 onChange={(e) => handleInputChange('name', e.target.value)}
-                                className="w-full"
+                                className={`w-full ${errors.name ? 'border-red-500' : ''}`}
                                 placeholder="Your full name"
                               />
+                              {errors.name && (
+                                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                              )}
                             </div>
                             <div>
                               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -206,9 +246,12 @@ export function ContactModal() {
                                 required
                                 value={formData.email}
                                 onChange={(e) => handleInputChange('email', e.target.value)}
-                                className="w-full"
+                                className={`w-full ${errors.email ? 'border-red-500' : ''}`}
                                 placeholder="your@email.com"
                               />
+                              {errors.email && (
+                                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                              )}
                             </div>
                           </div>
                           
@@ -223,7 +266,7 @@ export function ContactModal() {
                                 value={formData.phone}
                                 onChange={(e) => handleInputChange('phone', e.target.value)}
                                 className="w-full"
-                                placeholder="(000) 000-0000"
+                                placeholder="(647) 917-8641"
                               />
                             </div>
                             <div>
@@ -254,10 +297,19 @@ export function ContactModal() {
                               required
                               value={formData.message}
                               onChange={(e) => handleInputChange('message', e.target.value)}
-                              className="w-full min-h-[120px]"
+                              className={`w-full min-h-[120px] ${errors.message ? 'border-red-500' : ''}`}
                               placeholder="Tell us about your project, goals, or any questions you have..."
                             />
+                            {errors.message && (
+                              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                            )}
                           </div>
+                          
+                          {errors.submit && (
+                            <div className="text-center">
+                              <p className="text-red-500 text-sm">{errors.submit}</p>
+                            </div>
+                          )}
                           
                           <div className="text-center mb-8">
                             <Button 
