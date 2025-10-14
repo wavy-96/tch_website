@@ -266,7 +266,7 @@ export function ContactModal() {
                                 value={formData.phone}
                                 onChange={(e) => handleInputChange('phone', e.target.value)}
                                 className="w-full"
-                                placeholder="000 0000000"
+                                placeholder="+1 (647) 917-8641"
                               />
                             </div>
                             <div>

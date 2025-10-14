@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 const socialLinks = [
   { name: 'Email', href: 'mailto:Contact@thecreativehorse.ca', icon: Mail },
-  { name: 'Phone', href: 'tel:+10000000000', icon: Phone },
+  { name: 'Phone', href: 'tel:+16479178641', icon: Phone },
   { name: 'Instagram', href: '#', icon: Instagram },
 ]
 

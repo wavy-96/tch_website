@@ -198,7 +198,7 @@ Direct Contact
 Email: Contact@thecreativehorse.ca
 
 
-Phone: 000 0000000
+Phone: +1 (647) 917-8641
 
 
 Map Placeholder
