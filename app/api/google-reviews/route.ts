@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function GET(request: NextRequest) {
   try {
     // Google Places API configuration
-    const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY
+    const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || process.env.Google_Place_API_New
     const PLACE_ID = process.env.GOOGLE_PLACE_ID || process.env.Google_Place_ID || process.env.Google_Place_id // Your business Place ID
     
     if (!GOOGLE_PLACES_API_KEY || !PLACE_ID) {
