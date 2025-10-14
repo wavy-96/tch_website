@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { TheCreativeHorseNavbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
@@ -191,14 +192,54 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="flex-1">
-                  <div className="aspect-video bg-gradient-to-br from-primary-blue/10 to-primary-lime/10 rounded-2xl flex items-center justify-center">
-                    <div className="text-center">
-                      {React.createElement(service.icon, { className: "w-24 h-24 text-primary-blue/30 mx-auto mb-4" })}
-                      <p className="text-body text-gray-dark font-medium">
+                  <motion.div 
+                    className="relative aspect-video bg-gradient-to-br from-primary-blue via-primary-blue/80 to-primary-navy rounded-2xl flex items-center justify-center overflow-hidden group"
+                    initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.02,
+                      rotateY: 5,
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    {/* Animated background elements */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/20 via-transparent to-primary-lime/20 opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                    
+                    {/* Floating particles animation */}
+                    <div className="absolute inset-0">
+                      <div className="absolute top-4 left-4 w-2 h-2 bg-primary-lime rounded-full animate-pulse opacity-60" />
+                      <div className="absolute top-8 right-8 w-1 h-1 bg-white rounded-full animate-ping opacity-40" />
+                      <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-primary-lime rounded-full animate-bounce opacity-50" />
+                      <div className="absolute bottom-4 right-4 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" />
+                    </div>
+                    
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary-blue/10 to-primary-lime/20 rounded-2xl blur-sm group-hover:blur-none transition-all duration-500" />
+                    
+                    <div className="relative z-10 text-center transform group-hover:scale-105 transition-transform duration-500">
+                      <div className="relative">
+                        {React.createElement(service.icon, { 
+                          className: "w-24 h-24 text-white mx-auto mb-4 drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" 
+                        })}
+                        
+                        {/* Icon glow effect */}
+                        <div className="absolute inset-0 w-24 h-24 mx-auto bg-primary-lime/30 rounded-full blur-xl scale-150 group-hover:scale-200 transition-all duration-500" />
+                      </div>
+                      
+                      <p className="text-body text-white font-semibold drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300">
                         {service.title} in Action
                       </p>
+                      
+                      {/* Subtle accent line */}
+                      <div className="w-16 h-1 bg-primary-lime mx-auto mt-3 rounded-full opacity-80 group-hover:opacity-100 group-hover:w-20 transition-all duration-500" />
                     </div>
-                  </div>
+                    
+                    {/* Corner accents */}
+                    <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary-lime/50 rounded-tr-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary-lime/50 rounded-bl-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  </motion.div>
                 </div>
               </div>
             ))}
