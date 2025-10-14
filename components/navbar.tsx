@@ -51,38 +51,27 @@ export function TheCreativeHorseNavbar() {
           {/* Mobile Logo */}
           <Logo href="/" size="md" variant="blue" />
 
-          {/* Mobile Menu Toggle */}
-          <MobileNavToggle
-            isOpen={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          />
-        </MobileNavHeader>
-
-        {/* Mobile Menu */}
-        <MobileNavMenu
-          isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.link}
-              className="block w-full px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-blue dark:hover:text-primary-blue transition-colors uppercase"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+          {/* Mobile Navigation Items - Show directly on mobile */}
+          <div className="flex items-center space-x-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.link}
+                className="px-2 py-1 text-xs font-medium text-white hover:text-primary-lime transition-colors uppercase whitespace-nowrap"
+              >
+                {item.name}
+              </Link>
+            ))}
+            
+            {/* Mobile Contact Button */}
             <NavbarButton 
               href="/contact" 
-              className="w-full bg-primary-blue text-white hover:bg-primary-blue/90"
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-3 py-1 text-xs bg-primary-blue text-white hover:bg-primary-blue/90 whitespace-nowrap"
             >
               Contact
             </NavbarButton>
           </div>
-        </MobileNavMenu>
+        </MobileNavHeader>
       </MobileNav>
     </Navbar>
   )

@@ -261,6 +261,7 @@ export const NavbarButton = ({
   children,
   className,
   variant = "primary",
+  visible,
   ...props
 }: {
   href?: string;
@@ -268,6 +269,7 @@ export const NavbarButton = ({
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
+  visible?: boolean;
 } & (
   | React.ComponentPropsWithoutRef<"a">
   | React.ComponentPropsWithoutRef<"button">
