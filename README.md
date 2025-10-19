@@ -1,3 +1,5 @@
-# Test Branch - tch-test
+# TCH Website
 
-This is a test commit on the tch-test branch.
+A modern, responsive website for The Creative Horse agency.
+
+Last updated: December 2024
