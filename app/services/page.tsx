@@ -151,6 +151,8 @@ export default function ServicesPage() {
             </h1>
             <p className="text-body md:text-xl text-white/90 max-w-2xl mx-auto">
               We build websites, ads, and AI automations for your business optimized for growth.
+              <br />
+              <span className="text-sm text-blue-300">Updated December 2024</span>
             </p>
           </div>
         </div>
