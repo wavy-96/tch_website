@@ -43,6 +43,7 @@ export function FinalCta() {
             <Button 
               size="lg" 
               className="bg-white text-primary-navy hover:bg-gray-light w-full sm:w-auto"
+              onClick={() => window.location.href = '/contact'}
             >
               Book a Call
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -52,6 +53,7 @@ export function FinalCta() {
               variant="secondary" 
               size="lg" 
               className="bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary-navy w-full sm:w-auto"
+              onClick={() => window.location.href = '/contact'}
             >
               Get Free Audit
             </Button>

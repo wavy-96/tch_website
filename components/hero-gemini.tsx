@@ -128,7 +128,11 @@ export function HeroGemini({
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative z-20"
           >
-            <Button size="lg" className="w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto"
+              onClick={() => window.location.href = '/contact'}
+            >
               {primaryCta}
             </Button>
           </motion.div>

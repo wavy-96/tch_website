@@ -7,7 +7,6 @@ import { ArrowRight, ExternalLink, X } from 'lucide-react'
 import { RealWebsiteScreenshot } from '@/components/real-website-screenshot'
 import { AnimatedLaptopMockup } from '@/components/laptop-mockup'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react'
 
 const portfolioItems = [
@@ -241,16 +240,23 @@ export function PortfolioPreview() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-white">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          >
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={`${activeCategory}-${item.id}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-white">
                 {/* Background - Website Screenshot or Logo Image */}
                 <div className="relative h-64 overflow-hidden bg-gray-100">
                   {item.category === 'Logos' ? (
@@ -451,15 +457,18 @@ export function PortfolioPreview() {
               </Card>
             </motion.div>
           ))}
-        </div>
+          </motion.div>
+        </AnimatePresence>
 
         <div className="text-center">
-          <Link href={`/portfolio?category=${activeCategory.toLowerCase().replace(' ', '-')}`}>
-            <Button size="lg" variant="secondary">
-              View Our Work
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            variant="secondary"
+            onClick={() => window.location.href = `/portfolio?category=${activeCategory.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            View Our Work
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
         </div>
       </div>
 

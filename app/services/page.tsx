@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { SparklesCore } from '@/components/ui/sparkles'
+import { LampContainer } from '@/components/ui/lamp'
 import { 
   Globe, 
   Share2, 
@@ -185,7 +186,10 @@ export default function ServicesPage() {
                         ))}
                       </div>
                       
-                      <Button className="w-full lg:w-auto">
+                      <Button 
+                        className="w-full lg:w-auto"
+                        onClick={() => window.location.href = '/contact'}
+                      >
                         {service.cta}
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -194,54 +198,147 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="flex-1">
-                  <motion.div 
-                    className="relative aspect-video bg-gradient-to-br from-primary-blue via-primary-blue/80 to-primary-navy rounded-2xl flex items-center justify-center overflow-hidden group"
-                    initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ 
-                      scale: 1.02,
-                      rotateY: 5,
-                      transition: { duration: 0.3 }
-                    }}
-                  >
-                    {/* Animated background elements */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/20 via-transparent to-primary-lime/20 opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
-                    
-                    {/* Floating particles animation */}
-                    <div className="absolute inset-0">
-                      <div className="absolute top-4 left-4 w-2 h-2 bg-primary-lime rounded-full animate-pulse opacity-60" />
-                      <div className="absolute top-8 right-8 w-1 h-1 bg-white rounded-full animate-ping opacity-40" />
-                      <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-primary-lime rounded-full animate-bounce opacity-50" />
-                      <div className="absolute bottom-4 right-4 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" />
+                  {service.title === 'Website Development' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Website.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary-blue/10 to-primary-lime/20 rounded-2xl blur-sm group-hover:blur-none transition-all duration-500" />
-                    
-                    <div className="relative z-10 text-center transform group-hover:scale-105 transition-transform duration-500">
-                      <div className="relative">
-                        {React.createElement(service.icon, { 
-                          className: "w-24 h-24 text-white mx-auto mb-4 drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" 
-                        })}
-                        
-                        {/* Icon glow effect */}
-                        <div className="absolute inset-0 w-24 h-24 mx-auto bg-primary-lime/30 rounded-full blur-xl scale-150 group-hover:scale-200 transition-all duration-500" />
-                      </div>
-                      
-                      <p className="text-body text-white font-semibold drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300">
+                  ) : service.title === 'AI Voice Agents' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Voice Agents.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : service.title === 'Social Media Marketing' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Social Media.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : service.title === 'Analytics & Reporting' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Analytics.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : service.title === 'Graphic Design' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Graphic Design.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : service.title === 'Content Strategy' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Content.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : service.title === 'SEO Optimization' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/SEO.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : service.title === 'Google Ads Management' ? (
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <video
+                        src="/Service/Google Ads.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <LampContainer className="aspect-video rounded-2xl">
+                      <motion.div 
+                        className="relative w-full h-full flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+                        whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        whileHover={{ 
+                          scale: 1.02,
+                          rotateY: 5,
+                          transition: { duration: 0.3 }
+                        }}
+                      >
+                        <div className="relative z-50 text-center transform group-hover:scale-105 transition-transform duration-500">
+                          <div className="relative">
+                            {/* Service Icon */}
+                            <>
+                              {React.createElement(service.icon, { 
+                                className: "w-24 h-24 text-white mx-auto mb-4 drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500 relative z-10" 
+                              })}
+                              <motion.p 
+                                initial={{ opacity: 0.5, y: 100 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{
+                                  delay: 0.3,
+                                  duration: 0.8,
+                                  ease: "easeInOut",
+                                }}
+                                className="text-body text-white font-semibold drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
+                              >
                         {service.title} in Action
-                      </p>
-                      
-                      {/* Subtle accent line */}
-                      <div className="w-16 h-1 bg-primary-lime mx-auto mt-3 rounded-full opacity-80 group-hover:opacity-100 group-hover:w-20 transition-all duration-500" />
+                              </motion.p>
+                              
+                              {/* Subtle accent line */}
+                              <motion.div 
+                                initial={{ opacity: 0, scaleX: 0 }}
+                                whileInView={{ opacity: 0.8, scaleX: 1 }}
+                                transition={{ delay: 0.5, duration: 0.6 }}
+                                className="w-16 h-1 bg-cyan-400 mx-auto mt-3 rounded-full group-hover:opacity-100 group-hover:w-20 transition-all duration-500" 
+                              />
+                            </>
+                          )}
+                          
+                          {/* Icon glow effect - only for non-video services */}
+                          {service.title !== 'Website Development' && service.title !== 'AI Voice Agents' && service.title !== 'Social Media Marketing' && service.title !== 'Analytics & Reporting' && service.title !== 'Graphic Design' && service.title !== 'Content Strategy' && service.title !== 'SEO Optimization' && service.title !== 'Google Ads Management' && (
+                            <div className="absolute inset-0 w-24 h-24 mx-auto bg-cyan-400/40 rounded-full blur-xl scale-150 group-hover:scale-200 transition-all duration-500" />
+                          )}
                     </div>
-                    
-                    {/* Corner accents */}
-                    <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary-lime/50 rounded-tr-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary-lime/50 rounded-bl-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                  </motion.div>
+                  </div>
+                    </motion.div>
+                  </LampContainer>
+                  )}
                 </div>
               </div>
             ))}
