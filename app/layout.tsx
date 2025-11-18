@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Roboto } from 'next/font/google'
 import './globals.css'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
+import { Chatbot } from '@/components/chatbot'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -83,6 +84,7 @@ export default function RootLayout({
       <body className="font-inter antialiased">
         <SmoothScrollProvider>
           {children}
+          <Chatbot />
         </SmoothScrollProvider>
       </body>
     </html>
