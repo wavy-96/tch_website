@@ -2,7 +2,9 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react'
+import { MessageCircle, X, Send, Bot, User, CheckCircle } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
 interface Message {
   id: string
@@ -20,16 +22,32 @@ const initialMessages: Message[] = [
   },
 ]
 
-// Simple response logic - can be enhanced with AI integration later
-const getBotResponse = (userMessage: string): string => {
+// Check if user wants to provide information
+const shouldShowForm = (userMessage: string): boolean => {
   const lowerMessage = userMessage.toLowerCase()
+  const interestKeywords = [
+    'interested', 'sign up', 'get started', 'contact me', 'reach out',
+    'get in touch', 'provide', 'give', 'submit', 'register', 'book',
+    'schedule', 'consultation', 'free audit', 'quote', 'pricing',
+    'want to', 'would like', 'need', 'help me', 'yes', 'sure', 'okay'
+  ]
+  return interestKeywords.some(keyword => lowerMessage.includes(keyword))
+}
+
+// Simple response logic - can be enhanced with AI integration later
+const getBotResponse = (userMessage: string, showForm: boolean = false): string => {
+  const lowerMessage = userMessage.toLowerCase()
+
+  if (showForm) {
+    return "Great! I'd love to help you get started. Let me collect some information so we can reach out to you with the best solution for your business."
+  }
 
   if (lowerMessage.includes('service') || lowerMessage.includes('what do you do')) {
     return "We offer premium website development, social media marketing, Google Ads, SEO, and AI automations tailored for small to medium businesses. Would you like to know more about any specific service?"
   }
 
   if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('pricing')) {
-    return "Our pricing is customized based on your specific needs. We offer flexible packages for websites, marketing campaigns, and AI solutions. Would you like to schedule a free consultation to discuss your requirements?"
+    return "Our pricing is customized based on your specific needs. We offer flexible packages for websites, marketing campaigns, and AI solutions. Would you like to provide your information so we can send you a personalized quote?"
   }
 
   if (lowerMessage.includes('portfolio') || lowerMessage.includes('work') || lowerMessage.includes('example')) {
@@ -37,7 +55,7 @@ const getBotResponse = (userMessage: string): string => {
   }
 
   if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('email')) {
-    return "You can reach us through our Contact page, or I can help you get started right here. What would you like to know more about?"
+    return "You can reach us through our Contact page, or I can help you get started right here! Would you like to provide your information so we can reach out to you?"
   }
 
   if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
@@ -56,7 +74,7 @@ const getBotResponse = (userMessage: string): string => {
     return "We build AI-powered automations to streamline your business processes, improve customer engagement, and save you time. Our AI solutions are customized to your specific business needs. Would you like to explore how AI can help your business?"
   }
 
-  return "That's a great question! I'd be happy to connect you with our team to get more detailed information. Would you like to schedule a free consultation, or is there something specific about our services you'd like to know more about?"
+  return "That's a great question! I'd be happy to connect you with our team to get more detailed information. Would you like to provide your information so we can reach out to you?"
 }
 
 export function Chatbot() {
@@ -64,6 +82,18 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [inputValue, setInputValue] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    businessName: '',
+    businessType: '',
+    message: ''
+  })
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({})
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -92,20 +122,103 @@ export function Chatbot() {
     }
 
     setMessages((prev) => [...prev, userMessage])
+    const messageText = inputValue.trim()
     setInputValue('')
     setIsTyping(true)
+
+    // Check if user wants to provide information
+    const shouldShow = shouldShowForm(messageText)
 
     // Simulate bot thinking time
     setTimeout(() => {
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: getBotResponse(userMessage.text),
+        text: getBotResponse(messageText, shouldShow),
         sender: 'bot',
         timestamp: new Date(),
       }
       setMessages((prev) => [...prev, botResponse])
       setIsTyping(false)
+      
+      // Show form if user expressed interest
+      if (shouldShow) {
+        setTimeout(() => setShowForm(true), 500)
+      }
     }, 1000)
+  }
+
+  const validateForm = () => {
+    const errors: Record<string, string> = {}
+    
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required'
+    }
+    
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address'
+    }
+    
+    setFormErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+
+    setIsSubmitting(true)
+    setFormErrors({})
+
+    try {
+      const response = await fetch('/api/chatbot-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: 'Chatbot',
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        setShowForm(false)
+        
+        // Add success message to chat
+        const successMessage: Message = {
+          id: Date.now().toString(),
+          text: "Perfect! I've received your information. Our team will reach out to you within 24 hours. Is there anything else I can help you with?",
+          sender: 'bot',
+          timestamp: new Date(),
+        }
+        setMessages((prev) => [...prev, successMessage])
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          businessName: '',
+          businessType: '',
+          message: ''
+        })
+      } else {
+        setFormErrors({ submit: data.error || 'Something went wrong. Please try again.' })
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setFormErrors({ submit: 'Failed to submit. Please try again.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -274,6 +387,154 @@ export function Chatbot() {
                 Ask us about our services, pricing, or portfolio
               </p>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Lead Collection Form Modal */}
+      <AnimatePresence>
+        {showForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center p-4"
+            onClick={() => setShowForm(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-lg shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+            >
+              <div className="bg-gradient-to-r from-primary-blue to-primary-sky p-4 text-white flex items-center justify-between sticky top-0 z-10">
+                <h3 className="font-roboto font-bold text-lg">Get Started</h3>
+                <button
+                  onClick={() => setShowForm(false)}
+                  className="hover:bg-white/20 rounded-full p-1 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <form onSubmit={handleFormSubmit} className="p-6 space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-dark mb-2">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <Input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your full name"
+                    required
+                  />
+                  {formErrors.name && (
+                    <p className="text-red-500 text-xs mt-1">{formErrors.name}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-dark mb-2">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <Input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                  {formErrors.email && (
+                    <p className="text-red-500 text-xs mt-1">{formErrors.email}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-dark mb-2">
+                    Phone
+                  </label>
+                  <Input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-dark mb-2">
+                    Business Name
+                  </label>
+                  <Input
+                    type="text"
+                    value={formData.businessName}
+                    onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                    placeholder="Your business name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-dark mb-2">
+                    Business Type
+                  </label>
+                  <Input
+                    type="text"
+                    value={formData.businessType}
+                    onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
+                    placeholder="e.g., Retail, Restaurant, Service, etc."
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-dark mb-2">
+                    Message
+                  </label>
+                  <Textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell us about your project or what you're looking for..."
+                    rows={4}
+                  />
+                </div>
+
+                {formErrors.submit && (
+                  <p className="text-red-500 text-xs">{formErrors.submit}</p>
+                )}
+
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowForm(false)}
+                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-dark hover:bg-gray-50 transition-colors font-inter"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-inter font-medium flex items-center justify-center gap-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <motion.div
+                          className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Submit
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

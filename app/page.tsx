@@ -1,3 +1,18 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Digital Marketing Agency in Mississauga & Toronto',
+  description: 'The Creative Horse is a Mississauga-based digital marketing agency offering web design, SEO, Google Ads, and social media for businesses across the GTA.',
+  alternates: {
+    canonical: 'https://thecreativehorse.ca',
+  },
+  openGraph: {
+    title: 'Digital Marketing Agency in Mississauga & Toronto | The Creative Horse',
+    description: 'The Creative Horse is a Mississauga-based digital marketing agency offering web design, SEO, Google Ads, and social media for businesses across the GTA.',
+    url: 'https://thecreativehorse.ca',
+    type: 'website',
+  },
+}
 import { TheCreativeHorseNavbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { HeroGemini } from '@/components/hero-gemini'

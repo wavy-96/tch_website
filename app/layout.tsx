@@ -18,9 +18,13 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'The Creative Horse - Premium Digital Agency for SMBs',
-  description: 'Premium websites, ads, and AI automations for small–medium businesses in Toronto, Mississauga, and across North America. Look bigger, sell smarter.',
-  keywords: 'digital agency, website development, social media marketing, Google Ads, SEO, Toronto, Mississauga, SMB',
+  metadataBase: new URL('https://thecreativehorse.ca'),
+  title: {
+    default: 'Digital Marketing Agency in Mississauga & Toronto | The Creative Horse',
+    template: '%s | The Creative Horse',
+  },
+  description: 'Mississauga digital marketing agency helping GTA businesses grow with web design, SEO, Google Ads, and social media marketing.',
+  keywords: 'digital marketing agency Mississauga, web design Toronto, SEO Mississauga, Google Ads GTA, social media marketing Mississauga',
   authors: [{ name: 'The Creative Horse' }],
   creator: 'The Creative Horse',
   publisher: 'The Creative Horse',
@@ -29,22 +33,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://thecreativehorse.ca'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    url: 'https://thecreativehorse.ca',
-    title: 'The Creative Horse - Premium Digital Agency for SMBs',
-    description: 'Premium websites, ads, and AI automations for small–medium businesses in Toronto, Mississauga, and across North America.',
     siteName: 'The Creative Horse',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'The Creative Horse - Premium Digital Agency for SMBs',
-    description: 'Premium websites, ads, and AI automations for small–medium businesses in Toronto, Mississauga, and across North America.',
   },
   robots: {
     index: true,
@@ -70,7 +62,6 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Suppress browser extension runtime errors
               window.addEventListener('error', function(e) {
                 if (e.message && e.message.includes('runtime.lastError')) {
                   e.preventDefault();

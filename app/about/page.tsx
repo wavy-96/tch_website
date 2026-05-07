@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 import { TheCreativeHorseNavbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
@@ -6,6 +8,20 @@ import { Timeline } from '@/components/ui/timeline'
 import { PointerHighlight } from '@/components/ui/pointer-highlight'
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 import { ArrowRight, Target, Palette, Zap, TrendingUp } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'About Us — Mississauga Digital Marketing Agency',
+  description: 'Meet The Creative Horse — a Mississauga-based agency helping small and medium businesses across the GTA grow their digital presence and get more leads.',
+  alternates: {
+    canonical: 'https://thecreativehorse.ca/about',
+  },
+  openGraph: {
+    title: 'About Us — Mississauga Digital Marketing Agency | The Creative Horse',
+    description: 'Meet The Creative Horse — a Mississauga-based agency helping small and medium businesses across the GTA grow their digital presence.',
+    url: 'https://thecreativehorse.ca/about',
+    type: 'website',
+  },
+}
 
 const locationData = [
   {
