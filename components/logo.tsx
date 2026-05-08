@@ -24,7 +24,7 @@ export function Logo({ className = '', href = '/', size = 'md', variant = 'blue'
   const logoElement = (
     <div className={`${sizeClasses[size]} flex items-center justify-center ${className}`}>
       <Image
-        src="/logo_ch.png"
+        src="/Logos/logo_ch.png"
         alt="The Creative Horse Logo"
         width={imageSizes[size]}
         height={imageSizes[size]}
