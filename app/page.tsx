@@ -35,6 +35,7 @@ const jsonLd = {
   url: 'https://thecreativehorse.ca',
   telephone: '+16479178641',
   email: 'Contact@thecreativehorse.ca',
+  image: 'https://thecreativehorse.ca/Logos/tch_logo.png',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '6725 Millcreek Dr',
