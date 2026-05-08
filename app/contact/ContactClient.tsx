@@ -346,8 +346,22 @@ export default function ContactPage() {
                     </div>
                   </div>
 
+                  {/* Google Maps */}
+                  <div className="pt-4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.123456789!2d-79.7094!3d43.5771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s6725+Millcreek+Dr%2C+Mississauga%2C+ON+L5N+5V3!5e0!3m2!1sen!2sca!4v1234567890"
+                      width="100%"
+                      height="250"
+                      style={{ border: 0, borderRadius: '12px' }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="The Creative Horse - 6725 Millcreek Dr, Mississauga ON"
+                    />
+                  </div>
+
                   {/* Book a Call Button */}
-                  <div className="pt-8">
+                  <div className="pt-4">
                     <Button 
                       size="lg" 
                       className="w-full bg-primary-lime text-primary-navy hover:bg-primary-lime/90"

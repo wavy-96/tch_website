@@ -32,9 +32,14 @@ export default function GoogleAdsMississaugaPage() {
             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
               Stop wasting money on clicks that don't convert. We run ROI-focused Google Ads campaigns for Mississauga and GTA businesses that generate real leads and measurable growth.
             </p>
-            <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              Get a Free Campaign Audit
-            </a>
+            <div className="flex flex-wrap gap-4 justify-center">
+  <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+    Get a Free Campaign Audit
+  </a>
+  <a href="/services/seo-mississauga" className="inline-block border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors">
+    Also Need SEO?
+  </a>
+</div>
           </div>
         </div>
       </section>
@@ -131,7 +136,97 @@ export default function GoogleAdsMississaugaPage() {
           </div>
         </div>
       </section>
+{/* FAQ Section */}
+<section className="py-20 bg-white">
+        <div className="container-max px-4 md:px-8 lg:px-20">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-roboto font-bold text-primary-navy mb-12 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: 'How much does Google Ads cost for a small business in Mississauga?',
+                  a: 'Google Ads costs vary based on your industry and competition in the GTA market. Most Mississauga small businesses start with a monthly ad budget of $500-2,000. Management fees are separate and typically range from $500-1,500/month depending on campaign complexity.'
+                },
+                {
+                  q: 'How quickly can Google Ads generate leads for my Mississauga business?',
+                  a: 'Unlike SEO which takes months, Google Ads can start generating leads within days of launching. Once your campaign is live and targeting Mississauga and GTA customers, you can receive calls and enquiries almost immediately.'
+                },
+                {
+                  q: 'What is the difference between Google Ads and SEO for Mississauga businesses?',
+                  a: 'Google Ads gives you immediate visibility at the top of search results but requires ongoing ad spend. SEO takes longer but generates free organic traffic that compounds over time. For most Mississauga businesses, the best strategy is to run Google Ads for immediate leads while building SEO for long-term growth.'
+                },
+                {
+                  q: 'Do you manage Google Ads for local businesses in Mississauga?',
+                  a: 'Yes — local service businesses in Mississauga and the GTA are our specialty. We have run Google Ads campaigns for plumbers, HVAC companies, accountants, cleaning businesses, and more across Mississauga and Toronto.'
+                },
+                {
+                  q: 'How do you measure the success of Google Ads campaigns?',
+                  a: 'We track real business outcomes — phone calls, form submissions, and leads generated — not just clicks and impressions. Every campaign includes conversion tracking so you know exactly what your ad spend is generating for your Mississauga business.'
+                },
+              ].map((faq, index) => (
+                <div key={index} className="border border-gray-100 rounded-xl p-6 hover:border-blue-200 transition-colors">
+                  <h3 className="text-lg font-semibold text-primary-navy mb-3">{faq.q}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How much does Google Ads cost for a small business in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Most Mississauga small businesses start with a monthly ad budget of $500-2,000. Management fees typically range from $500-1,500/month depending on campaign complexity.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How quickly can Google Ads generate leads for my Mississauga business?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Unlike SEO which takes months, Google Ads can start generating leads within days of launching. Once your campaign is live and targeting Mississauga and GTA customers, you can receive calls and enquiries almost immediately.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What is the difference between Google Ads and SEO for Mississauga businesses?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Google Ads gives you immediate visibility at the top of search results but requires ongoing ad spend. SEO takes longer but generates free organic traffic that compounds over time.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you manage Google Ads for local businesses in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes — local service businesses in Mississauga and the GTA are our specialty. We have run Google Ads campaigns for plumbers, HVAC companies, accountants, and cleaning businesses across Mississauga and Toronto.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do you measure the success of Google Ads campaigns?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'We track real business outcomes — phone calls, form submissions, and leads generated — not just clicks and impressions. Every campaign includes conversion tracking.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <Footer />
     </main>
   )

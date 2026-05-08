@@ -32,9 +32,14 @@ export default function WebDesignMississaugaPage() {
             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
               We have built 100+ websites for small and medium businesses across Mississauga, Toronto, and the GTA. Affordable, fast, and built to generate real leads.
             </p>
-            <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              Get a Free Consultation
-            </a>
+            <div className="flex flex-wrap gap-4 justify-center">
+  <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+    Start Your Project Today
+  </a>
+  <a href="/services/seo-mississauga" className="inline-block border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors">
+    Also Need SEO?
+  </a>
+</div>
           </div>
         </div>
       </section>
@@ -137,7 +142,97 @@ export default function WebDesignMississaugaPage() {
           </div>
         </div>
       </section>
+{/* FAQ Section */}
+<section className="py-20 bg-white">
+        <div className="container-max px-4 md:px-8 lg:px-20">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-roboto font-bold text-primary-navy mb-12 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: 'How much does a website cost in Mississauga?',
+                  a: 'Most small business websites in Mississauga cost between $1,500 and $6,000 depending on complexity. A simple 5-page brochure site starts around $1,500, while a full e-commerce store can range from $5,000-15,000. We provide free consultations and honest quotes with no hidden fees.'
+                },
+                {
+                  q: 'How long does it take to build a website in Mississauga?',
+                  a: 'A standard small business website typically takes 2-4 weeks from start to launch. More complex sites with e-commerce or custom functionality can take 4-8 weeks. We provide a clear timeline before starting any project.'
+                },
+                {
+                  q: 'Do you build websites for small businesses in Mississauga?',
+                  a: 'Yes — small and medium businesses are our specialty. We have built 100+ websites for local businesses across Mississauga, Toronto, Brampton, Oakville, and the GTA.'
+                },
+                {
+                  q: 'Will my website rank on Google?',
+                  a: 'Every website we build includes local SEO setup targeting Mississauga and GTA search terms. We set up proper meta tags, schema markup, Google My Business integration, and site structure to give your site the best chance of ranking locally from day one.'
+                },
+                {
+                  q: 'Do you offer website maintenance after launch?',
+                  a: 'Yes. We offer ongoing support and maintenance for all websites we build. We also include free revisions during the build process — we work until you are 100% satisfied.'
+                },
+              ].map((faq, index) => (
+                <div key={index} className="border border-gray-100 rounded-xl p-6 hover:border-blue-200 transition-colors">
+                  <h3 className="text-lg font-semibold text-primary-navy mb-3">{faq.q}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How much does a website cost in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Most small business websites in Mississauga cost between $1,500 and $6,000 depending on complexity. A simple 5-page brochure site starts around $1,500, while a full e-commerce store can range from $5,000-15,000.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How long does it take to build a website in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'A standard small business website typically takes 2-4 weeks from start to launch. More complex sites with e-commerce or custom functionality can take 4-8 weeks.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you build websites for small businesses in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes — small and medium businesses are our specialty. We have built 100+ websites for local businesses across Mississauga, Toronto, Brampton, Oakville, and the GTA.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Will my website rank on Google?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Every website we build includes local SEO setup targeting Mississauga and GTA search terms including proper meta tags, schema markup, Google My Business integration, and site structure.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you offer website maintenance after launch?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. We offer ongoing support and maintenance for all websites we build. We also include free revisions during the build process.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <Footer />
     </main>
   )

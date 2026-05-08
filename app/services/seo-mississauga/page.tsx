@@ -32,9 +32,14 @@ export default function SEOMississaugaPage() {
             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
               We generated 300+ leads in 3 months for local Mississauga businesses through SEO. Get found on Google by the customers who are already searching for you.
             </p>
-            <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              Get a Free SEO Audit
-            </a>
+            <div className="flex flex-wrap gap-4 justify-center">
+  <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+    Get Your Free SEO Audit
+  </a>
+  <a href="/services/google-ads-mississauga" className="inline-block border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors">
+    Also Need Google Ads?
+  </a>
+</div>
           </div>
         </div>
       </section>
@@ -134,7 +139,97 @@ export default function SEOMississaugaPage() {
           </div>
         </div>
       </section>
+{/* FAQ Section */}
+<section className="py-20 bg-white">
+        <div className="container-max px-4 md:px-8 lg:px-20">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-roboto font-bold text-primary-navy mb-12 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: 'How long does SEO take to work in Mississauga?',
+                  a: 'For local businesses in Mississauga and the GTA, you can typically expect to see meaningful ranking improvements within 3-6 months of consistent SEO work. Some businesses see results faster depending on competition level and how well their website is optimized.'
+                },
+                {
+                  q: 'How much does SEO cost for a small business in Mississauga?',
+                  a: 'Local SEO services for Mississauga small businesses typically range from $500-2,000 per month depending on the scope of work. We offer transparent pricing with no long-term contracts — you pay for results, not retainers.'
+                },
+                {
+                  q: 'What is local SEO and why does my Mississauga business need it?',
+                  a: 'Local SEO is the process of optimizing your online presence so your business appears at the top of Google when customers in Mississauga, Toronto, and the GTA search for your services. It is the most cost-effective marketing investment for local businesses because it generates leads 24/7 without ongoing ad spend.'
+                },
+                {
+                  q: 'Can you get my business into the Google Maps top 3 in Mississauga?',
+                  a: 'Yes — getting local businesses into Google\'s top 3 map results is one of our core services. It requires a combination of Google My Business optimization, local citations, reviews, and on-page SEO. We have done this for businesses across Mississauga and the GTA.'
+                },
+                {
+                  q: 'Do you guarantee SEO results?',
+                  a: 'No ethical SEO agency can guarantee specific rankings because Google controls the algorithm. What we do guarantee is transparent work, honest reporting, and a strategy focused entirely on generating real leads for your Mississauga business — not vanity metrics.'
+                },
+              ].map((faq, index) => (
+                <div key={index} className="border border-gray-100 rounded-xl p-6 hover:border-blue-200 transition-colors">
+                  <h3 className="text-lg font-semibold text-primary-navy mb-3">{faq.q}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How long does SEO take to work in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'For local businesses in Mississauga and the GTA, you can typically expect to see meaningful ranking improvements within 3-6 months of consistent SEO work.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How much does SEO cost for a small business in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Local SEO services for Mississauga small businesses typically range from $500-2,000 per month depending on the scope of work.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What is local SEO and why does my Mississauga business need it?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Local SEO is the process of optimizing your online presence so your business appears at the top of Google when customers in Mississauga, Toronto, and the GTA search for your services.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can you get my business into the Google Maps top 3 in Mississauga?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Getting local businesses into Google\'s top 3 map results is one of our core services. It requires Google My Business optimization, local citations, reviews, and on-page SEO.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you guarantee SEO results?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'No ethical SEO agency can guarantee specific rankings. What we guarantee is transparent work, honest reporting, and a strategy focused on generating real leads for your Mississauga business.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <Footer />
     </main>
   )
