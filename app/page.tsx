@@ -90,7 +90,7 @@ export default function HomePage() {
       
       <HeroGemini
         title="We are your unfair digital advantage."
-        subtitle="Build websites, ads, and AI automations customized for your business."
+        subtitle="Mississauga's digital marketing agency for web design, SEO, and Google Ads. Helping GTA businesses look bigger and grow faster."
         primaryCta="Get Started"
         proof=""
       />
@@ -118,6 +118,42 @@ export default function HomePage() {
       
       <Testimonials />
       
+     {/* Service Areas Section */}
+     <section className="py-20 bg-black text-white">
+        <div className="container-max px-4 md:px-8 lg:px-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-roboto font-bold mb-6">
+              Serving Mississauga, Toronto & the GTA
+            </h2>
+            <p className="text-lg text-white/80 mb-6">
+              Based in Mississauga, The Creative Horse is a digital marketing agency serving small and medium businesses across the Greater Toronto Area. We help local businesses look bigger, rank higher, and generate more leads online.
+            </p>
+            <p className="text-lg text-white/80 mb-12">
+              Whether you are a plumber in Brampton, an accountant in Oakville, a restaurant in Etobicoke, or a contractor in Burlington — we have the local market knowledge and digital expertise to grow your business online.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+              {[
+                { city: 'Mississauga', desc: 'Our Home Base' },
+                { city: 'Toronto', desc: 'Downtown & GTA' },
+                { city: 'Brampton', desc: 'Peel Region' },
+                { city: 'Oakville', desc: 'Halton Region' },
+                { city: 'Burlington', desc: 'Halton Region' },
+                { city: 'Milton', desc: 'Halton Hills' },
+                { city: 'Etobicoke', desc: 'West Toronto' },
+                { city: 'Vaughan', desc: 'York Region' },
+              ].map((area) => (
+                <div key={area.city} className="p-4 border border-white/10 rounded-xl hover:border-blue-400 transition-colors">
+                  <p className="font-semibold text-white">{area.city}</p>
+                  <p className="text-white/50 text-sm">{area.desc}</p>
+                </div>
+              ))}
+            </div>
+            <a href="/contact" className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              Get a Free Consultation
+            </a>
+          </div>
+        </div>
+      </section> 
       <Footer />
     </main>
   )

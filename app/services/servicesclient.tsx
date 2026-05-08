@@ -34,7 +34,8 @@ const services = [
       'Content management system',
       'E-commerce integration'
     ],
-    cta: 'Book a Call'
+    cta: 'Book a Call',
+    link: '/services/web-design-mississauga'
   },
   {
     icon: Bot,
@@ -76,7 +77,8 @@ const services = [
       'Budget optimization',
       'Performance reporting'
     ],
-    cta: 'Book a Call'
+    cta: 'Book a Call',
+    link: '/services/google-ads-mississauga'
   },
   {
     icon: Search,
@@ -90,7 +92,8 @@ const services = [
       'Rank tracking',
       'Google My Business optimization'
     ],
-    cta: 'Book a Call'
+    cta: 'Book a Call',
+    link: '/services/seo-mississauga'
   },
   {
     icon: Palette,
@@ -188,13 +191,25 @@ export default function ServicesPage() {
                         ))}
                       </div>
                       
-                      <Button 
-                        className="w-full lg:w-auto"
-                        onClick={() => window.location.href = '/contact'}
-                      >
-                        {service.cta}
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+                      <div className="flex gap-3 flex-wrap">
+                        <Button 
+                          className="w-full lg:w-auto"
+                          onClick={() => window.location.href = '/contact'}
+                        >
+                          {service.cta}
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                        {service.link && (
+                          <Button
+                            variant="outline"
+                            className="w-full lg:w-auto"
+                            onClick={() => window.location.href = service.link!}
+                          >
+                            Learn More
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 </div>

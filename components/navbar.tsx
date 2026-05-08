@@ -19,6 +19,7 @@ const navItems = [
   { name: 'Services', link: '/services' },
   { name: 'Portfolio', link: '/portfolio' },
   { name: 'About', link: '/about' },
+  { name: 'Blog', link: '/blog' },
 ]
 
 export function TheCreativeHorseNavbar() {

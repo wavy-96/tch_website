@@ -3,23 +3,25 @@
 import Image from 'next/image'
 
 const brandLogos = [
-  { name: 'Gus Taco', logo: '/Logos/Gus Taco Logo.png' },
-  { name: 'Dspot', logo: '/Logos/Dspot-logo1.webp' },
+  { name: 'Gus Taco Restaurant Mississauga', logo: '/Logos/Gus Taco Logo.png' },
+  { name: 'Dspot Dessert Cafe GTA', logo: '/Logos/Dspot-logo1.webp' },
   { name: 'Paper Plane', logo: '/Logos/Paper Plane Logo.svg' },
   { name: 'Trans Globe', logo: '/Logos/Trans Globe Logo.svg' },
   { name: 'Asal-E-Musaffa', logo: '/Logos/Asal-E-Musaffa- Logo.svg' },
-  { name: 'Canadian Flyers', logo: '/Logos/canadian flyers international logo (1) (1).jpg' },
+  { name: 'Canadian Flyers International', logo: '/Logos/canadian flyers international logo (1) (1).jpg' },
   { name: 'Pixel Perfect Maldives', logo: '/Logos/Logo- Pixel Perfect Maldives (1).pdf.png' },
-  { name: 'Client 1', logo: '/Logos/ALL LOGOS (1).png' },
-  { name: 'Client 2', logo: '/Logos/ALL LOGOS (2).png' },
-  { name: 'Client 3', logo: '/Logos/ALL LOGOS (3).png' },
-  { name: 'Client 4', logo: '/Logos/ALL LOGOS (4).png' },
-  { name: 'Client 5', logo: '/Logos/ALL LOGOS (5).png' },
-  { name: 'Client 6', logo: '/Logos/ALL LOGOS (6).png' },
-  { name: 'Client 7', logo: '/Logos/ALL LOGOS (7).png' },
-  { name: 'Client 8', logo: '/Logos/ALL LOGOS (8).png' },
-  { name: 'Client 9', logo: '/Logos/ALL LOGOS (9).png' },
-  { name: 'Client 10', logo: '/Logos/ALL LOGOS (10).png' },
+  { name: 'Anytime Tots', logo: '/Logos/anytime_tots_logo.png' },
+  { name: 'Ridan 3D Industries', logo: '/Logos/ridan-3d-industries-logo.png' },
+  { name: 'Pack Spectrum', logo: '/Logos/pack-spectrum-logo.png' },
+  { name: 'Marie Hogan Inc', logo: '/Logos/marie-hogan-inc-logo.png' },
+  { name: 'Hummingbird Interactive', logo: '/Logos/hummingbird-interactive-logo.png' },
+  { name: 'Sphere Agency', logo: '/Logos/sphere-agency-logo.png' },
+  { name: 'Sapphire Inc Real Estate', logo: '/Logos/sapphire-inc-real-estate-logo.png' },
+  { name: 'Sync Inc', logo: '/Logos/sync-inc-logo.png' },
+  { name: 'Octane Reality Inc', logo: '/Logos/octane-reality-inc-logo.png' },
+  { name: 'Hunger Cooks', logo: '/Logos/hunger-cooks-logo.png' },
+  { name: 'Keithstone Real Estate', logo: '/Logos/keithstone-real-estate-logo.png' },
+  { name: 'VR Your World', logo: '/Logos/vr-your-world-logo.png' },
 ]
 
 export function BrandsTrustUs() {
